@@ -4,6 +4,7 @@ import { ejercicio1 } from './cabeceraPagina';
 import { ejercicio2 } from './calculadora';
 import { ejercicio3 } from './cancion';
 import { ejercicio4 } from './cajero';
+import { ejercicio5 } from './abstractClass';
 
 let path = window.location.pathname;
 mainMenu();
@@ -33,7 +34,7 @@ switch (path) {
     break;
 
     case '/ejercicio5':
-
+        ejercicio5();
     break;
 
 }
