@@ -80,12 +80,56 @@ export const ejercicio5 = ():void => {
         <input type="number" id="sueldo" required>
 
         <div>
-        <button type="submit"></button>
+        <button type="submit">Guardar</button>
         </div>
     </form>
     `;
 
     //We show the form
     document.querySelector('#app')!.appendChild(formContainer);
+
+
+    //We get the form and add the event listener
+
+    document.getElementById('empleado-form')?.addEventListener('submit',  (e) => {
+    e.preventDefault();
+
+    let nombre:string = (document.getElementById('nombre') as HTMLInputElement).value;
+    let apellido:string = (document.getElementById('apellido') as HTMLInputElement).value;
+    let edad:number = parseInt((document.getElementById('edad') as HTMLInputElement).value);
+    let direccion:string = (document.getElementById('direccion') as HTMLInputElement).value;
+    let telefono:string = (document.getElementById('telefono') as HTMLInputElement).value;
+    let sueldo:number = parseFloat((document.getElementById('sueldo') as HTMLInputElement).value);      
+    
+    //We create the object
+    const empleado = new Empleado(nombre, apellido, direccion, telefono, edad);
+    empleado.mostrarDatos();
+    empleado.setSueldo(sueldo);
+
+    //We show the response
+    const PersonaPreview = document.getElementById('response-preview')!;    
+    PersonaPreview.style.display = 'block';
+    PersonaPreview.innerHTML = `
+    <div>
+        <h3>Datos del Empleado</h3>
+        <p><b>Nombre:</b> ${empleado.nombre} ${empleado.apellido}</p>
+        <p><b>Edad:</b> ${empleado.edad} años</p>
+        <p><b>Dirección:</b> ${empleado.direccion}</p>
+        <p><b>Teléfono:</b> ${empleado.telefono}</p>
+        <p><b>Sueldo:</b> $${empleado.getSueldo().toFixed(2)}</p>  
+        <p>${empleado.checkAge()}</p>
+
+    </div>
+    `;
+
+    })
+
+
+     //here we display the response of the methods, at first it will be hidden 
+    const PersonaPreview = document.createElement('div');
+    PersonaPreview.id = 'response-preview';
+    PersonaPreview.className = 'response-cuenta-preview';
+    PersonaPreview.style.display = 'none'
+    document.querySelector('#app')!.appendChild(PersonaPreview);
 
 }

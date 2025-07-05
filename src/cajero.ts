@@ -16,7 +16,7 @@ class Cuenta {
             alert("El valor a depositar debe ser mayor a $5.00");
         } else {
             this.cantidad += valor;
-            alert(`Se ha depositado correctamente $${valor.toFixed(2)} en la cuenta de ${this.nombre}.`);
+            alert(`Se ha depositado correctamente $${valor.toFixed(2)} en la cuenta de ${this.nombre}, nuevo salado de ${this.cantidad}.`);
         }
     }
 
@@ -96,10 +96,10 @@ export const ejercicio4 = ():void => {
         CajeroPreview.innerHTML = `
         <div>
         <h3>Datos de la cuenta</h3>
-        <p>Nombre: ${cajero.nombre}</p>
-        <p>Tipo de cuenta: ${cajero.tipoCuenta}</p>
-        <p>Número de cuenta: ${cajero.numeroCuenta}</p>
-        <p>Saldo inicial: $${cajero.cantidad.toFixed(2)}</p>
+        <p><b>Nombre:</b> ${cajero.nombre}</p>
+        <p><b>Tipo de cuenta:</b> ${cajero.tipoCuenta}</p>
+        <p><b>Número de cuenta:</b> ${cajero.numeroCuenta}</p>
+        <p><b>Saldo inicial:</b> $${cajero.cantidad.toFixed(2)}</p>
         </div>
         <form id="accion-cuenta-form">
             <label for="accion">Acción:</label>
